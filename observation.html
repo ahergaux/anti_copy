@@ -1,0 +1,36 @@
+<!-- secure_viewer.html -->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Document sécurisé</title>
+  <style>
+    body {
+      margin: 0;
+      background: #000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+    video {
+      max-width: 100%;
+      max-height: 100%;
+      pointer-events: none;
+    }
+  </style>
+  <script>
+    // Empêche clic droit
+    document.addEventListener('contextmenu', e => e.preventDefault());
+
+    // Auto-fermeture après 3 minutes (180000 ms)
+    setTimeout(() => {
+      document.body.innerHTML = "<h2 style='color:white'>Session expirée</h2>";
+    }, 180000);
+  </script>
+</head>
+<body>
+  <video src="secure_decomposed.mp4" autoplay loop muted playsinline></video>
+</body>
+</html>
